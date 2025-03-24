@@ -12,6 +12,8 @@ DD_API_KEY=(                       ) DD_SITE="us5.datadoghq.com" bash -c "$(curl
 # Step 4- Add a required permission to that prinsiple 
 ![image](https://github.com/user-attachments/assets/f48fa248-e1c7-4e09-803f-fc6c825642f6)
 
+# Now With This Steps you crate the authentication with Gcp with that specific project so any resource you create in this gcp project you just need to add that data dog agent 
+
 
 
 
