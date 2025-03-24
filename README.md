@@ -6,5 +6,8 @@ DD_API_KEY=(                       ) DD_SITE="us5.datadoghq.com" bash -c "$(curl
 # Step 2- Now You need to cretate conectivity between datadog and Gcp 
 ![image](https://github.com/user-attachments/assets/d9913173-e609-4948-babf-fdb710efbd7b)
 
+# Step 3- You need to add datadog principle to Gcp Service Account and Gcp Service Account To data dog email for 2 way Authentication
+![image](https://github.com/user-attachments/assets/7bca0e30-06e4-44fa-9519-cbc78be58a33)
+
 
 
