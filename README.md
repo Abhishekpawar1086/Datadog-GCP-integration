@@ -14,6 +14,14 @@ DD_API_KEY=(                       ) DD_SITE="us5.datadoghq.com" bash -c "$(curl
 
  Now With This Steps you crate the authentication with Gcp with that specific project so any resource you create in this gcp project you just need to add that data dog agent 
 
+ # Datadog-docker-integration
+ step 1 you need to install Docker in Your Vm first 
+ step 2 and than /etc/datadog-agent/conf.d/docker.d/docker_daemon.yaml
+ inside this yaml file 
+ ![image](https://github.com/user-attachments/assets/3ad4e705-af41-48f8-8051-f18d6a171311)
+ step 3 and restart data dog agent 
+ no inside your datadog container you can see all container in ui
+
 
 
 
