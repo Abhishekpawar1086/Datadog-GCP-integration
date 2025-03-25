@@ -28,6 +28,8 @@ DD_API_KEY=(                       ) DD_SITE="us5.datadoghq.com" bash -c "$(curl
  step 3 and restart data dog agent 
  no inside your datadog container you can see all container in ui
 
+ # intigrate data dog with kubernetes 
+
 
 
 
