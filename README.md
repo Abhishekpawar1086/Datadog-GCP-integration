@@ -28,9 +28,26 @@ DD_API_KEY=(                       ) DD_SITE="us5.datadoghq.com" bash -c "$(curl
  step 3 and restart data dog agent 
  no inside your datadog container you can see all container in ui
 
- # intigrate data dog with kubernetes 
+ # Datadog-K8s-integration
+step 1 helm repo add datadog https://helm.datadoghq.com
+helm install datadog-operator datadog/datadog-operator
+kubectl create secret generic datadog-secret --from-literal api-key=<DATADOG_API_KEY>
 
-
+step 2 create // datadog-agent.yaml
+apiVersion: datadoghq.com/v2alpha1
+kind: DatadogAgent
+metadata:
+  name: datadog
+spec:
+  global:
+    clusterName: kubernetes-clusterv1
+    site: us5.datadoghq.com
+    credentials:
+      apiSecret:
+        secretName: datadog-secret
+        keyName: api-key
+        
+step 3 kubectl apply -f datadog-agent.yaml
 
 
 
