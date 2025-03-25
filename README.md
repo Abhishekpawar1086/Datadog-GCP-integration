@@ -30,11 +30,13 @@ DD_API_KEY=(                       ) DD_SITE="us5.datadoghq.com" bash -c "$(curl
 
  # Datadog-K8s-integration
 step 1 
-helm repo add datadog https://helm.datadoghq.com
 
-helm install datadog-operator datadog/datadog-operator
+helm repo add datadog https://helm.datadoghq.com   //This adds Datadog's official Helm chart repository to your local Helm setup.
 
-kubectl create secret generic datadog-secret --from-literal api-key=<DATADOG_API_KEY>
+helm install datadog-operator datadog/datadog-operator  // Installs the Datadog Operator in your current Kubernetes namespace.
+                                                        // The Operator will watch for DatadogAgent custom resources (CRDs) to deploy Agents.
+
+kubectl create secret generic datadog-secret --from-literal api-key=<DATADOG_API_KEY>        //This securely stores the API key as a Kubernetes Secret named datadog-secret
 
 step 2 create // datadog-agent.yaml
 
@@ -52,6 +54,26 @@ spec:
         keyName: api-key
         
 step 3 kubectl apply -f datadog-agent.yaml
+What Happens Next?
+The Datadog Operator detects the DatadogAgent custom resource.
+
+It deploys the following components:
+
+Datadog Agent Pods (DaemonSet for node-level monitoring).
+
+Cluster Agent (Optional, for cluster-wide metrics).
+
+Kube State Metrics (Optional, for Kubernetes object metrics).
+
+The Agent starts collecting:
+
+Node metrics (CPU, memory, disk).
+
+Kubernetes metrics (pods, deployments).
+
+Logs (if configured).
+
+APM traces (if enabled).
 
 
 
